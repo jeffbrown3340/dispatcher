@@ -20,7 +20,7 @@
 * __7/27-8/2 -- format polishing and debugging__
 * __8/3 -- Final presentation__
 
-*A link to your Jira, Trello, or Project Management Board that shows breakdown of tasks – assigned to group members with a schedule --* **see above, because it's just me not likely I'll use Trello.**
+*A link to your Jira, Trello, or Project Management Board that shows breakdown of tasks – assigned to group members with a schedule --* **Not using Trello (because it's just me)**
 
 *A set of DETAILED screen-by-screen design layouts with annotations describing all UI/UX components and all data relevant to the screen* **I'll get this prepared ASAP**
 
