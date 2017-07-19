@@ -9,16 +9,16 @@
 
 *A schedule for completion of various tasks.*
 
-__*--Completed -- working base code including mobile (based on what we did in class Saturday with your MERRnN generator)
-*--Completed -- create Github site https://github.com/jeffbrown3340/dispatcher
-*--Completed -- deploy skeleton to Heroku https://jeffbrownus-dispatcher.herokuapp.com/
-*--7/18 -- in process -- deploy mobile component to Expo
-*--7/19-26 -- coding:
-*---- admin dashboard with user and service call database models and skeletal views
-*---- controllers to handle incoming call (read and create) and push to mobile device (react native)
-*--7/22 -- mini presentation
-*--7/27-8/2 -- troubleshooting and debugging
-*--8/3 -- Final presentation__
+__* --Completed -- working base code including mobile (based on what we did in class Saturday with your MERRnN generator)
+* --Completed -- create Github site https://github.com/jeffbrown3340/dispatcher
+* --Completed -- deploy skeleton to Heroku https://jeffbrownus-dispatcher.herokuapp.com/
+* --7/18 -- in process -- deploy mobile component to Expo
+* --7/19-26 -- coding:
+* ---- admin dashboard with user and service call database models and skeletal views
+* ---- controllers to handle incoming call (read and create) and push to mobile device (react native)
+* --7/22 -- mini presentation
+* --7/27-8/2 -- troubleshooting and debugging
+* --8/3 -- Final presentation__
 
 *A link to your Jira, Trello, or Project Management Board that shows breakdown of tasks – assigned to group members with a schedule --* **see above, because it's just me not likely I'll use Trello.**
 
