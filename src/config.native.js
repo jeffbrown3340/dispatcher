@@ -4,7 +4,7 @@ const config = {
     },
     production: {
         //@todo: change with your heroku URL
-        baseApiUrl: 'https://dispatcher.herokuapp.com/'
+        baseApiUrl: 'https://jeffbrownus-dispatcher.herokuapp.com/'
     }
 };
 
