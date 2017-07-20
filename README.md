@@ -12,7 +12,7 @@
 * __Completed -- working base code including mobile__
 * __Completed -- create Github site__ https://github.com/jeffbrown3340/dispatcher
 * __Completed -- deploy skeleton to Heroku__ https://jeffbrownus-dispatcher.herokuapp.com
-* __7/18 -- in process -- deploy mobile component to Expo__
+* __Completed -- in process -- deploy mobile component to Expo__
 * __7/19-26 -- Coding/Debugging:__
   * __admin dashboard with user and service call database models and skeletal views__
   * __controllers to handle incoming call (read and create) and push to mobile device (react native)__
