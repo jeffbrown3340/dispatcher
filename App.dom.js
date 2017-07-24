@@ -4,6 +4,8 @@ import Layout from './src/components/Layout/Layout.dom';
 import { BrowserRouter, Route, Switch, history } from 'react-router-dom';
 import HomeScreen from './src/components/HomeScreen/HomeScreen.dom';
 import UserDetails from './src/components/UserDetails/UserDetails.dom';
+import ServiceReqCreate from './src/components/ServiceReqCreate/ServiceReqCreate.dom';
+
 
 ReactDOM.render(
     <BrowserRouter history={history}>
@@ -11,6 +13,7 @@ ReactDOM.render(
             <Switch>
                 <Route exact path="/" component={HomeScreen} />
                 <Route exact path="/userdetails" component={UserDetails} />
+                <Route exact path="/servicereqcreate" component={ServiceReqCreate} />
             </Switch>
         </Layout>
     </BrowserRouter>,

@@ -23,10 +23,9 @@ class UserDetails extends Component {
     }
 
     saveItem(event) {
-        console.log(this.state);
         axios.post(`${config.baseApiUrl}api/users`, this.state)
             .then(response => {
-                // this.props.history.push('/users');
+                //this.props.history.push('/usersdetails');
             });
     }
 
