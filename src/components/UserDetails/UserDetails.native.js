@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
 import config from '../../config.base';
 
@@ -33,92 +33,68 @@ class UserDetails extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
-            <ScrollView>
-                <Text>UserDetails</Text>
-                <View>
+            <View style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.headerText}>dispatcher</Text>
+            </View>            
+                <View style={styles.inputContainer}>
+                    <Text style={styles.font18}>UserDetails</Text>
                     <View>
-                        <Text>acctNum</Text>
-                        <TextInput type="text"
-                            value={this.state.acctNum}
-                            onChangeText={text => this.setState({ acctNum: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>nameLastCompany:</Text>
-                        <TextInput type="text"
-                            value={this.state.nameLastCompany}
-                            onChangeText={text => this.setState({ nameLastCompany: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>nameFirstMI:</Text>
-                        <TextInput type="text"
-                            value={this.state.nameFirstMI}
-                            onChangeText={text => this.setState({ nameFirstMI: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>nameCallMe:</Text>
-                        <TextInput type="text"
-                            value={this.state.nameCallMe}
-                            onChangeText={text => this.setState({ nameCallMe: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>billAddress:</Text>
-                        <TextInput type="text"
-                            value={this.state.billAddress}
-                            onChangeText={text => this.setState({ billAddress: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>physAddress:</Text>
-                        <TextInput type="text"
-                            value={this.state.physAddress}
-                            onChangeText={text => this.setState({ physAddress: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>eMail:</Text>
-                        <TextInput type="text"
-                            value={this.state.eMail}
-                            onChangeText={text => this.setState({ eMail: text })}
-                        />
-                    </View>
-                    <View>
-                        <Text>phone.phPrimary:</Text>
-                        <TextInput type="text"
-                            value={this.state.phone.phPrimary}
-                            onChangeText={text => this.setState({ phone:Object.assign({}, this.state.phone, {phPrimary: text })})}
-                        />
-                    </View>
-                    <View>
-                        <Text>phone.phType:</Text>
-                        <TextInput type="text"
-                            value={this.state.phone.phType}
-                            onChangeText={text => this.setState({ phone:{...this.state.phone, phType: text }})}
-                        />
-                    </View>
-                    <View>
-                        <Text>phone.phNum:</Text>
-                        <TextInput type="text"
-                            value={this.state.phone.phNum}
-                            onChangeText={text => this.setState({ phone:{...this.state.phone, phNum: text }})}
-                        />
-                    </View>
-                    <View>
-                        <TouchableOpacity onPress={this.saveItem.bind(this)}><Text>Create</Text></TouchableOpacity>
+                        <View>
+                            <Text style={styles.font18}>acctNum</Text>
+                            <TextInput type="text"
+                                value={this.state.acctNum}
+                                onChangeText={text => this.setState({ acctNum: text })}
+                            />
+                        </View>
+                        <View>
+                            <TouchableOpacity
+                                style={styles.submitButton}  
+                                onPress={this.saveItem.bind(this)}>
+                                <Text style={styles.font18}>Create</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
-            </ScrollView>
             </View>
         );
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
+    container: {
+        flex: 2,
+        flexDirection: 'column',
+        backgroundColor: '#F5FCFF'
+    },
+    header: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'mediumblue'
+    },
+    headerText: {
+        fontSize: 36,
+        color: 'white'
+    },
+    inputContainer: {
+        flex: 4,
+        margin: 5,
+        marginBottom: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F5FCFF'
+    },
+    submitButton: {
+        marginTop: 10,
+        padding: 10,
+        backgroundColor: 'green',
+        borderRadius: 5
+    },
+    font18: {
+        fontSize: 18
+    }
 
-}
+});
 
 export default UserDetails;
