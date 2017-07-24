@@ -4,15 +4,17 @@ import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/components/HomeScreen/HomeScreen.native';
 import SplashScreen from './src/components/SplashScreen/SplashScreen.native';
 import UserDetails from './src/components/UserDetails/UserDetails.native';
+import RepLoginScreen from './src/components/RepLoginScreen/RepLoginScreen.native';
 
 export default App = StackNavigator(
   {
     Home: { screen: HomeScreen },
     UserMobile: { screen: UserDetails },
+    RepLoginScreen: { screen: RepLoginScreen },
     Splash: { screen: SplashScreen }
   },
   {
-    initialRouteName: 'UserMobile',
+    initialRouteName: 'RepLoginScreen',
     //headerMode: 'screen',
     navigationOptions: {
       title: '',
