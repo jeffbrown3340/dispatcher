@@ -6,11 +6,12 @@ var router = express.Router();
 var db = connection(['servicereqs']);
 
 router.get('/servicereqs', function (req, res) {
+    console.log(req.query.ownerRep);
     db.servicereqs.find({
-        //[@todo: add filters]
+        ownerRep: req.query.ownerRep
     }, function (err, result) {
-        if (err) return res.send(err);
-        res.json(result);
+         if (err) return res.send(err);
+         res.json(result);
     });
 });
 
