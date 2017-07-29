@@ -6,27 +6,24 @@ import config from '../../config.base';
 class RepLoginScreen extends Component {
     state = {
         ownerRep: '',
+        isLoggedIn: false,
         serviceReqs: []
      }
 
     repLogin(event) {
         axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.state})
             .then(response => {
-                this.setState({serviceReqs: response.data})
+                this.setState({serviceReqs: response.data, ownerRep: ''})
             });
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}>dispatcher</Text>
-                </View>            
                 <View style={styles.inputContainer}>
-                    <Text style={styles.font18}>RepLoginScreen</Text>
+                    <Text style={styles.font18}>Field Rep Login</Text>
                     <View>
                         <View>
-                            <Text style={styles.font18}>ownerRep</Text>
                             <TextInput type="text"
                                 style={styles.textOwnerRep}
                                 value={this.state.ownerRep}
@@ -56,17 +53,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 2,
         flexDirection: 'column',
-        backgroundColor: '#F5FCFF'
-    },
-    header: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'mediumblue'
-    },
-    headerText: {
-        fontSize: 36,
-        color: 'white'
+        backgroundColor: '#2180C0'
     },
     inputContainer: {
         flex: 4,
@@ -74,24 +61,26 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#2180C0'
     },
     submitButton: {
         marginTop: 10,
         padding: 10,
-        backgroundColor: 'green',
+        backgroundColor: 'red',
         borderRadius: 5,
         alignItems: 'center'
     },
     font18: {
-        fontSize: 18
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold'
     },
     textOwnerRep: {
         fontSize: 36,
         width: 120,
         height: 40,
         alignItems: 'center',
-        borderColor: 'black'
+        borderColor: 'white'
 
     }
 

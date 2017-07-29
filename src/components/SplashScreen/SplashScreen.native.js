@@ -13,7 +13,7 @@ class SplashScreen extends Component {
 
             <View style={styles.container}>
                 <Image source={icon} style={{ height: 100, width: 100 }} />
-                <Text>Dispatch</Text>
+                <Text>Dispatcher</Text>
             </View>
 
         )
@@ -21,14 +21,14 @@ class SplashScreen extends Component {
 
 
     componentDidMount() {
-        setTimeout(() => this.nextPage(), 3000);
+        setTimeout(() => this.nextPage(), 500);
     }
 
     nextPage() {
         let resetAction = NavigationActions.reset({
             index: 0,
             actions: [
-                NavigationActions.navigate({ routeName: 'Home' })
+                NavigationActions.navigate({ routeName: 'RepLoginScreen' })
             ]
         });
         this.props.navigation.dispatch(resetAction);
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#238c59',
+        backgroundColor: '#2180C0',
         position: 'relative',
         top: 0
     }

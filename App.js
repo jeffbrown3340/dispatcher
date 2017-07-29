@@ -14,13 +14,13 @@ export default App = StackNavigator(
     Splash: { screen: SplashScreen }
   },
   {
-    initialRouteName: 'RepLoginScreen',
-    //headerMode: 'screen',
+    initialRouteName: 'Splash',
+    headerMode: 'screen',
     navigationOptions: {
-      title: '',
+      title: 'dispatcher',
       headerStyle: {
         height: 65,
-        backgroundColor: '#238c59',
+        backgroundColor: '#2180C0',
         marginBottom: 5,
         shadowOpacity: 0.8,
         shadowRadius: 2,
@@ -31,8 +31,8 @@ export default App = StackNavigator(
         paddingTop: 10
       },
       headerTitleStyle: {
+        alignSelf: 'center',
         fontSize: 25,
-        textAlign: 'center',
         marginTop: 12,
         fontWeight: 'bold',
         color: 'white'
