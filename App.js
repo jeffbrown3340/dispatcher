@@ -5,12 +5,14 @@ import HomeScreen from './src/components/HomeScreen/HomeScreen.native';
 import SplashScreen from './src/components/SplashScreen/SplashScreen.native';
 import UserDetails from './src/components/UserDetails/UserDetails.native';
 import RepLoginScreen from './src/components/RepLoginScreen/RepLoginScreen.native';
+import ServiceReqsViewSelect from './src/components/ServiceReqsViewSelect/ServiceReqsViewSelect.native';
 
 export default App = StackNavigator(
   {
     Home: { screen: HomeScreen },
     UserMobile: { screen: UserDetails },
     RepLoginScreen: { screen: RepLoginScreen },
+    ServiceReqsViewSelect: {screen: ServiceReqsViewSelect},
     Splash: { screen: SplashScreen }
   },
   {
