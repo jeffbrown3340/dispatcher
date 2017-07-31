@@ -10,15 +10,14 @@ class SplashScreen extends Component {
 
     render() {
         return (
-
             <View style={styles.container}>
                 <Image source={icon} style={{ height: 100, width: 100 }} />
                 <Text>Dispatcher</Text>
             </View>
 
         )
-    }
 
+    }
 
     componentDidMount() {
         setTimeout(() => this.nextPage(), 500);

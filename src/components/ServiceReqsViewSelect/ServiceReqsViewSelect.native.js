@@ -5,28 +5,35 @@ import config from '../../config.base';
 
 class ServiceReqsViewSelect extends Component {
     state = {
-        ownerRep: '',
-        isLoggedIn: false,
+        loggedInRep: '',
+        repCallMe: '',
         serviceReqs: []
      }
 
-    // repLogin(event) {
-    //     axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.state})
-    //         .then(response => {
-    //             this.setState({serviceReqs: response.data, ownerRep: ''})
-    //         });
-    // }
+    componentDidMount() {
+        // axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.state})
+
+
+        axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.props.navigation.state.params})
+            .then(response => {
+                this.setState({serviceReqs: response.data });
+            });
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.inputContainer}>
-                    <Text style={styles.font18}>Field Rep Logged in == 123</Text>
-                        {/* <ScrollView>
+                    <Text style={styles.font18}>
+                        Field Rep Logged in == {this.props.navigation.state.params.loggedInRep}
+                    </Text>
+                    <View>
+                        <ScrollView>
                             {this.state.serviceReqs.map(serviceReq => (
-                                <Text key={serviceReq._id}>{serviceReq.sourceAcct}</Text>
+                                <Text style={styles.font18} key={serviceReq._id}>{serviceReq.sourceAcct}</Text>
                             ))}
-                        </ScrollView> */}
+                        </ScrollView>
+                    </View>
                 </View>
             </View>
         );

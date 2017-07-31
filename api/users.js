@@ -7,7 +7,7 @@ var db = connection(['users']);
 
 router.get('/users', function (req, res) {
     db.users.find({
-        //[@todo: add filters]
+        acctNum: req.query.ownerRep
     }, function (err, result) {
         if (err) return res.send(err);
         res.json(result);

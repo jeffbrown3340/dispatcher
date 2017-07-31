@@ -6,9 +6,9 @@ var router = express.Router();
 var db = connection(['servicereqs']);
 
 router.get('/servicereqs', function (req, res) {
-    console.log(req.query.ownerRep);
+    console.log(req.query.loggedInRep);
     db.servicereqs.find({
-        ownerRep: req.query.ownerRep
+        ownerRep: req.query.loggedInRep
     }, function (err, result) {
          if (err) return res.send(err);
          res.json(result);

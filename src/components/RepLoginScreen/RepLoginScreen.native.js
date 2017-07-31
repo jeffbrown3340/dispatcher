@@ -2,18 +2,30 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
 import config from '../../config.base';
+import { NavigationActions } from 'react-navigation';
 
 class RepLoginScreen extends Component {
     state = {
         ownerRep: '',
-        isLoggedIn: false,
-        serviceReqs: []
+        loginAttempts: 0,
+        loggedInRep: '',
      }
 
     repLogin(event) {
-        axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.state})
+        axios.get(`${config.baseApiUrl}api/users`, {params: {ownerRep: this.state.ownerRep}})
             .then(response => {
-                this.setState({serviceReqs: response.data, ownerRep: ''})
+                var logggedInRep = "";
+                if (!response.data.length) {
+                    this.state.loginAttempts++;
+                } else {
+                    this.state.loginAttempts = -1;
+                    loggedInRep = this.state.ownerRep;
+                }
+                this.setState({
+                    loginAttempts: this.state.loginAttempts,
+                    ownerRep: '',
+                    loggedInRep: loggedInRep,
+                });
             });
     }
 
@@ -37,15 +49,29 @@ class RepLoginScreen extends Component {
                                 <Text style={styles.font18}>Login</Text>
                             </TouchableOpacity>
                         </View>
-                        <ScrollView>
-                            {this.state.serviceReqs.map(serviceReq => (
-                                <Text key={serviceReq._id}>{serviceReq.sourceAcct}</Text>
-                            ))}
-                        </ScrollView>
                     </View>
                 </View>
             </View>
         );
+    }
+
+    componentDidUpdate() {
+        if (this.state.loginAttempts < 0) this.nextPage();
+    }
+
+    nextPage() {
+        let resetAction = NavigationActions.reset({
+            index: 0,
+            actions: [
+                NavigationActions.navigate({ 
+                    routeName: 'ServiceReqsViewSelect',
+                    params: {
+                        loggedInRep: this.state.loggedInRep,
+                    }
+                })
+            ]
+        });
+        this.props.navigation.dispatch(resetAction);
     }
 }
 
