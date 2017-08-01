@@ -12,17 +12,19 @@ class RepLoginScreen extends Component {
      }
 
     repLogin(event) {
+        var loginAttempts = this.state.loginAttempts;
         axios.get(`${config.baseApiUrl}api/users`, {params: {ownerRep: this.state.ownerRep}})
             .then(response => {
-                var logggedInRep = "";
+                var loggedInRep = "";
                 if (!response.data.length) {
-                    this.state.loginAttempts++;
+                    loginAttempts++;
+                    console.log("Unsuccessful login attempts: ", loginAttempts);
                 } else {
-                    this.state.loginAttempts = -1;
+                    loginAttempts = 0;
                     loggedInRep = this.state.ownerRep;
                 }
                 this.setState({
-                    loginAttempts: this.state.loginAttempts,
+                    loginAttempts: loginAttempts,
                     ownerRep: '',
                     loggedInRep: loggedInRep,
                 });
@@ -39,7 +41,10 @@ class RepLoginScreen extends Component {
                             <TextInput type="text"
                                 style={styles.textOwnerRep}
                                 value={this.state.ownerRep}
-                                onChangeText={text => this.setState({ ownerRep: text })}
+                                onChangeText={text => this.setState({ 
+                                    ownerRep: text,
+                                    loggedInRep: ''
+                                })}
                             />
                         </View>
                         <View>
@@ -56,22 +61,17 @@ class RepLoginScreen extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.loginAttempts < 0) this.nextPage();
+        if (this.state.loggedInRep != '') this.nextPage();
     }
 
     nextPage() {
-        let resetAction = NavigationActions.reset({
-            index: 0,
-            actions: [
-                NavigationActions.navigate({ 
-                    routeName: 'ServiceReqsViewSelect',
-                    params: {
-                        loggedInRep: this.state.loggedInRep,
-                    }
-                })
-            ]
-        });
-        this.props.navigation.dispatch(resetAction);
+        let navigateAction = NavigationActions.navigate({
+            routeName: 'ServiceReqsViewSelect',
+            params: {
+                loggedInRep: this.state.loggedInRep,
+            }
+        });    
+        this.props.navigation.dispatch(navigateAction);
     }
 }
 
