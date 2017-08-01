@@ -7,30 +7,39 @@ class ServiceReqsViewSelect extends Component {
     state = {
         loggedInRep: '',
         repCallMe: '',
+        selectedReq: '',
         serviceReqs: []
      }
 
     componentDidMount() {
-        // axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.state})
-
-
         axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.props.navigation.state.params})
             .then(response => {
                 this.setState({serviceReqs: response.data });
             });
     }
+    
+    selectReq() {
+        console.log("81-402", this.state);
+    }
 
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.inputContainer}>
+                <View style={styles.reqListContainer}>
                     <Text style={styles.font18}>
                         Field Rep Logged in == {this.props.navigation.state.params.loggedInRep}
                     </Text>
                     <View>
-                        <ScrollView>
+                        <ScrollView keyboardShouldPersistTaps="always" >
                             {this.state.serviceReqs.map(serviceReq => (
-                                <Text style={styles.font18} key={serviceReq._id}>{serviceReq.sourceAcct}</Text>
+                                 <View key={serviceReq._id}> 
+                                    <TouchableOpacity
+                                        key={serviceReq._id}
+                                        style={styles.selectButton}
+                                        onPress={this.selectReq.bind(this.key)}>
+                                        <Text style={styles.font18} key={serviceReq._id} >{serviceReq.sourceAcct}</Text>
+                                    </TouchableOpacity>
+                                 </View> 
                             ))}
                         </ScrollView>
                     </View>
@@ -46,7 +55,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#2180C0'
     },
-    inputContainer: {
+    reqListContainer: {
         flex: 4,
         margin: 5,
         marginBottom: 30,
@@ -54,7 +63,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: '#2180C0'
     },
-    submitButton: {
+    selectButton: {
         marginTop: 10,
         padding: 10,
         backgroundColor: 'red',

@@ -62,7 +62,6 @@ class RepLoginScreen extends Component {
     }
 
     componentDidUpdate() {
-        console.log("81-1130", this.state);
         if (this.state.loggedInRep != '') this.nextPage();
     }
 
