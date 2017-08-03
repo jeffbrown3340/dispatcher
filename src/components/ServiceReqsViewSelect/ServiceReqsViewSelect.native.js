@@ -18,28 +18,28 @@ class ServiceReqsViewSelect extends Component {
             });
     }
     
-    selectReq() {
-        console.log("81-402", this.state);
+    selectReq(id) {
+        console.log("81-402", id);
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.reqListContainer}>
                     <Text style={styles.font18}>
                         Field Rep Logged in == {this.props.navigation.state.params.loggedInRep}
                     </Text>
-                    <View>
-                        <ScrollView keyboardShouldPersistTaps="always" >
+                <View style={styles.reqListContainer}>
+                    <View style={styles.reqListContainer}>
+                        <ScrollView style={styles.scrollItems} keyboardShouldPersistTaps="always" >
                             {this.state.serviceReqs.map(serviceReq => (
-                                 <View key={serviceReq._id}> 
+                                  <View style={styles.scrollItems} key={serviceReq._id}>  
                                     <TouchableOpacity
                                         key={serviceReq._id}
                                         style={styles.selectButton}
-                                        onPress={this.selectReq.bind(this.key)}>
+                                        onPress={this.selectReq.bind(this, serviceReq._id)}>
                                         <Text style={styles.font18} key={serviceReq._id} >{serviceReq.sourceAcct}</Text>
                                     </TouchableOpacity>
-                                 </View> 
+                                  </View>  
                             ))}
                         </ScrollView>
                     </View>
@@ -52,7 +52,7 @@ class ServiceReqsViewSelect extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 2,
-        flexDirection: 'column',
+        alignItems: 'center',
         backgroundColor: '#2180C0'
     },
     reqListContainer: {
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2180C0'
     },
     selectButton: {
+        flex: 1,
         marginTop: 10,
         padding: 10,
         backgroundColor: 'red',
@@ -82,6 +83,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: 'white'
 
+    },
+    scrollItems: {
+        flex: 1
     }
 
 
