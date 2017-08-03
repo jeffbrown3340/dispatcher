@@ -6,6 +6,7 @@ import SplashScreen from './src/components/SplashScreen/SplashScreen.native';
 import UserDetails from './src/components/UserDetails/UserDetails.native';
 import RepLoginScreen from './src/components/RepLoginScreen/RepLoginScreen.native';
 import ServiceReqsViewSelect from './src/components/ServiceReqsViewSelect/ServiceReqsViewSelect.native';
+import ServiceReqDetails from './src/components/ServiceReqDetails/ServiceReqDetails.native';
 
 export default App = StackNavigator(
   {
@@ -13,13 +14,14 @@ export default App = StackNavigator(
     UserMobile: { screen: UserDetails },
     RepLoginScreen: { screen: RepLoginScreen },
     ServiceReqsViewSelect: {screen: ServiceReqsViewSelect},
+    ServiceReqDetails: {screen: ServiceReqDetails},
     Splash: { screen: SplashScreen }
   },
   {
     initialRouteName: 'Splash',
     headerMode: 'screen',
     navigationOptions: {
-      title: 'dispatcher 1.30',
+      title: 'dispatcher 1.31',
       headerStyle: {
         height: 65,
         backgroundColor: '#2180C0',

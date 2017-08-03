@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
 import config from '../../config.base';
+import { NavigationActions } from 'react-navigation';
+
 
 class ServiceReqsViewSelect extends Component {
     state = {
@@ -14,12 +16,24 @@ class ServiceReqsViewSelect extends Component {
     componentDidMount() {
         axios.get(`${config.baseApiUrl}api/servicereqs`, {params: this.props.navigation.state.params})
             .then(response => {
-                this.setState({serviceReqs: response.data });
+                this.setState({
+                    loggedInRep: this.props.navigation.state.params.loggedInRep,
+                    serviceReqs: response.data 
+                });
             });
     }
     
-    selectReq(id) {
-        console.log("81-402", id);
+    selectReq(id, acct) {
+        let navigateAction = NavigationActions.navigate({
+            routeName: 'ServiceReqDetails',
+            params: {
+                serviceReqID: id,
+                loggedInRep: this.state.loggedInRep,
+                sourceAcct: acct
+            }
+        });    
+        this.props.navigation.dispatch(navigateAction);
+
     }
 
     render() {
@@ -36,7 +50,7 @@ class ServiceReqsViewSelect extends Component {
                                     <TouchableOpacity
                                         key={serviceReq._id}
                                         style={styles.selectButton}
-                                        onPress={this.selectReq.bind(this, serviceReq._id)}>
+                                        onPress={this.selectReq.bind(this, serviceReq._id, serviceReq.sourceAcct)}>
                                         <Text style={styles.font18} key={serviceReq._id} >{serviceReq.sourceAcct}</Text>
                                     </TouchableOpacity>
                                   </View>  
