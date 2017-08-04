@@ -51,9 +51,10 @@ router.put('/servicereqs/:id', function (req, res) {
 });
 
 router.put('/servicereqstatus/:id', function (req, res) {
+    console.log(req.body);
     db.servicereqs.update(
         { _id: mongojs.ObjectId(req.params.id) },
-        {$set: {status: 'C'}},
+        {$set: {status: req.body.serviceReq.status === 'P' ? "C" : "Closed" }},
         function (err, result) {
             if (err) return res.send(err);
             res.json(result);

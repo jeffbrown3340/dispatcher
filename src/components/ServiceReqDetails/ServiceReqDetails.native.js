@@ -8,7 +8,7 @@ class ServiceReqDetails extends Component {
         loggedInRep: '',
         repCallMe: '',
         selectedReq: '',
-        serviceReq: [],
+        serviceReq: {},
         client: ''
      }
 
@@ -20,9 +20,13 @@ class ServiceReqDetails extends Component {
     }
 
     statusUpdate() {
+        
         axios.put(`${config.baseApiUrl}api/servicereqstatus/${this.state.serviceReq._id}`, this.state)
             .then(response => {
-                this.setState({serviceReq: response.data });
+                var statusObj = this.state.serviceReq;
+                console.log("83-652", response.data);
+                statusObj.status = statusObj.status === 'P' ? "C" : "X";
+                this.setState({serviceReq: statusObj});
             });
         
     }
@@ -30,18 +34,27 @@ class ServiceReqDetails extends Component {
     render() {
         return (
             <View style={styles.container}>
-                    <Text style={styles.font18}>
-                        Service Request Detail == {this.state.serviceReq.sourceAcct}
-                    </Text>
-                    <Text style={styles.font18}>
-                        Owner Rep == {this.state.serviceReq.ownerRep}
-                    </Text>
-                    <Text style={styles.font18}>
-                        Request Type == {this.state.serviceReq.reqType}
-                    </Text>
-                    <Text style={styles.font18}>
-                        Request Status == {this.state.serviceReq.status}
-                    </Text>
+                <Text style={styles.font18}>
+                    Service Request Detail == {this.state.serviceReq.sourceAcct}
+                </Text>
+                <Text style={styles.font18}>
+                    Owner Rep == {this.state.serviceReq.ownerRep}
+                </Text>
+                <Text style={styles.font18}>
+                    Request Type == {this.state.serviceReq.reqType}
+                </Text>
+                <Text style={styles.font18}>
+                    Request Status == {this.state.serviceReq.status}
+                </Text>
+                <View style={styles.buttonContainer}>
+                    {this.state.serviceReq.status !== "X" &&
+                    <TouchableOpacity
+                        style={styles.statusButton}  
+                        onPress={this.statusUpdate.bind(this)}>
+                        <Text style={styles.font18}>{this.state.serviceReq.status === "P" ? "Claim" : "Close"}</Text>
+                    </TouchableOpacity>
+                    }
+                </View>
             </View>
         );
     }
@@ -49,12 +62,12 @@ class ServiceReqDetails extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 2,
+        flex: 1,
         alignItems: 'center',
         backgroundColor: '#2180C0'
     },
-    statusContainer: {
-        flex: 1,
+    buttonContainer: {
+        flex: 4,
         margin: 5,
         marginBottom: 30,
         alignItems: 'center',
@@ -62,7 +75,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#2180C0'
     },
     statusButton: {
-        flex: 1,
         marginTop: 10,
         padding: 10,
         backgroundColor: 'red',
@@ -73,20 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: 'white',
         fontWeight: 'bold'
-    },
-    textOwnerRep: {
-        fontSize: 36,
-        width: 120,
-        height: 40,
-        alignItems: 'center',
-        borderColor: 'white'
-
-    },
-    scrollItems: {
-        flex: 1
     }
-
-
 });
 
 export default ServiceReqDetails;
