@@ -17,6 +17,7 @@ class serviceReqs extends Component {
     saveItem(event) {
         axios.post(`${config.baseApiUrl}api/servicereqs`, this.state)
             .then(response => {
+                console.log("0804-2240");
                 this.props.history.push('/servicereqcreate');
             });
     }
