@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../../config.base';
+import { BrowserRouter, Route, Link, history } from 'react-router-dom'
 
 //@todo: Add route to App.dom.js
 //import serviceReqs from './src/components/serviceReqs/serviceReqs.dom';
@@ -11,45 +12,60 @@ class serviceReqs extends Component {
         sourceAcct: "",
         reqType: '',
         ownerRep: '',
-        status: ''
+        status: 'Pending'
+    }
+
+    clearState() {
+        console.log("805-0131");
+        this.setState({
+            sourceAcct: "",
+            reqType: '',
+            ownerRep: '',
+            status: 'Pending'
+        });
     }
 
     saveItem(event) {
         axios.post(`${config.baseApiUrl}api/servicereqs`, this.state)
             .then(response => {
                 console.log("0804-2240");
+                this.clearState();
                 this.props.history.push('/servicereqcreate');
             });
+    }
+    
+    navToUsers() {
+        this.props.history.push('/userdetails');
     }
 
     render() {
         return (
             <div>
-                <h1 style={styles.pageTitle}>serviceReqs</h1>
+                <h3 style={styles.pageTitle}>Create Service Requests</h3>
                 <div className='row'>
                     <div className='col col-xs-12'>
-                        <div><label style={styles.fieldLabel}>sourceAcct:</label></div>
+                        <div><label style={styles.fieldLabel}>Description for Field Rep</label></div>
                         <input style={styles.inputText} type="text"
                             value={this.state.sourceAcct}
                             onChange={event => this.setState({ sourceAcct: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <div><label style={styles.fieldLabel}>reqType:</label></div>
+                        <div><label style={styles.fieldLabel}>Type of Service Requested</label></div>
                         <input style={styles.inputText} type="text"
                             value={this.state.reqType}
                             onChange={event => this.setState({ reqType: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <div><label style={styles.fieldLabel}>ownerRep:</label></div>
+                        <div><label style={styles.fieldLabel}>Assign to Field Rep</label></div>
                         <input style={styles.inputText} type="text"
                             value={this.state.ownerRep}
                             onChange={event => this.setState({ ownerRep: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <div><label style={styles.fieldLabel}>status:</label></div>
+                        <div><label style={styles.fieldLabel}>Status:</label></div>
                         <input style={styles.inputText} type="text"
                             value={this.state.status}
                             onChange={event => this.setState({ status: event.target.value })}
@@ -57,6 +73,7 @@ class serviceReqs extends Component {
                     </div>
                     <div className='col col-xs-12'>
                         <button className='btn btn-danger' onClick={this.saveItem.bind(this)}>create<br />request</button>
+                        <button style={styles.navToUserButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>change to<br />user screen</button>
                     </div>
                 </div>
             </div>
@@ -76,10 +93,10 @@ const styles = {
         fontWeight: 'bold'        
     },
     inputText: {
-        marginBottom: 12
-    }
-
-
+        marginBottom: 12,
+        width: 260
+    },
+    navToUserButton: { marginLeft: 80}
 }
 
 export default serviceReqs;

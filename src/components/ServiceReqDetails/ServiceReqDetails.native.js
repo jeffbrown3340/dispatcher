@@ -20,12 +20,10 @@ class ServiceReqDetails extends Component {
     }
 
     statusUpdate() {
-        
         axios.put(`${config.baseApiUrl}api/servicereqstatus/${this.state.serviceReq._id}`, this.state)
             .then(response => {
                 var statusObj = this.state.serviceReq;
-                console.log("83-652", response.data);
-                statusObj.status = statusObj.status === 'P' ? "C" : "X";
+                statusObj.status = statusObj.status === 'Pending' ? "In Process" : "Complete";
                 this.setState({serviceReq: statusObj});
             });
         
@@ -35,23 +33,23 @@ class ServiceReqDetails extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.font18}>
-                    Service Request Detail == {this.state.serviceReq.sourceAcct}
+                    Desc->{this.state.serviceReq.sourceAcct}
                 </Text>
                 <Text style={styles.font18}>
-                    Owner Rep == {this.state.serviceReq.ownerRep}
+                    Rep Assignment->{this.state.serviceReq.ownerRep}
                 </Text>
                 <Text style={styles.font18}>
-                    Request Type == {this.state.serviceReq.reqType}
+                    Service->{this.state.serviceReq.reqType}
                 </Text>
                 <Text style={styles.font18}>
-                    Request Status == {this.state.serviceReq.status}
+                    Status->{this.state.serviceReq.status}
                 </Text>
                 <View style={styles.buttonContainer}>
-                    {this.state.serviceReq.status !== "X" &&
+                    {this.state.serviceReq.status !== "Completed" &&
                     <TouchableOpacity
                         style={styles.statusButton}  
                         onPress={this.statusUpdate.bind(this)}>
-                        <Text style={styles.font18}>{this.state.serviceReq.status === "P" ? "Claim" : "Close"}</Text>
+                        <Text style={styles.font18}>{this.state.serviceReq.status === "Pending" ? "Accept" : "Complete"}</Text>
                     </TouchableOpacity>
                     }
                 </View>

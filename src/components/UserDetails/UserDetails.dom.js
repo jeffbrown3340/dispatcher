@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../../config.base';
+import { BrowserRouter, Route, Link, history } from 'react-router-dom'
 
 //@todo: Add route to App.dom.js
 //import UserDetails from './src/components/UserDetails/UserDetails.dom';
@@ -32,8 +33,12 @@ class UserDetails extends Component {
         axios.post(`${config.baseApiUrl}api/users`, this.state)
             .then(response => {
                 this.clearState;
-                this.props.history.push('/usersdetails');
+                this.props.history.push('/userdetails');
             });
+    }
+
+    navToSRC() {
+        this.props.history.push('/servicereqcreate');
     }
 
     render() {
@@ -85,6 +90,7 @@ class UserDetails extends Component {
                     </div>
                     <div className='col col-xs-12'>
                         <button className='btn btn-danger' onClick={this.saveItem.bind(this)}>create<br />account</button>
+                        <button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>change to<br />create req screen</button>
                     </div>
                 </div>
             </div>
@@ -104,9 +110,11 @@ const styles = {
         fontWeight: 'bold'        
     },
     inputText: {
-        marginBottom: 12
-    }
-
+        marginBottom: 12,
+        width: 500
+    },
+    
+    navButton: { marginLeft: 200}
 }
 
 export default UserDetails;

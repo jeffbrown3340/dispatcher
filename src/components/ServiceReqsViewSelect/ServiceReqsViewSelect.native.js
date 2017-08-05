@@ -39,14 +39,14 @@ class ServiceReqsViewSelect extends Component {
     render() {
         return (
             <View style={styles.container}>
-                    <Text style={styles.font18}>
-                        Field Rep Logged in == {this.props.navigation.state.params.loggedInRep}
-                    </Text>
+                <Text style={styles.font18}>
+                    Field Rep Logged in == {this.props.navigation.state.params.loggedInRep}
+                </Text>
                 <View style={styles.reqListContainer}>
                     <View style={styles.reqListContainer}>
                         <ScrollView style={styles.scrollItems} keyboardShouldPersistTaps="always" >
                             {this.state.serviceReqs.map(serviceReq => (
-                                  <View style={styles.scrollItems} key={serviceReq._id}>  
+                                  <View style={styles.scrollItems} key={serviceReq._id}>
                                     <TouchableOpacity
                                         key={serviceReq._id}
                                         style={styles.selectButton}

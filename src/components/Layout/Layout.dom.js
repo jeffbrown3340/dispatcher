@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Layout = (props) => (
     <div>
         <div className='container-fluid bg-primary text-white dp-header' style={styles.header}>
-            dispatcher 1.33
+            dispatcher 1.34
         </div>
         <div className='container-fluid'>
             {/*Renders body*/}

@@ -11,7 +11,7 @@ class RepLoginScreen extends Component {
         loggedInRep: '',
      }
 
-    repLogin(event) {
+    repLogin() {
         var loginAttempts = this.state.loginAttempts;
         axios.get(`${config.baseApiUrl}api/users`, {params: {ownerRep: this.state.ownerRep}})
             .then(response => {
