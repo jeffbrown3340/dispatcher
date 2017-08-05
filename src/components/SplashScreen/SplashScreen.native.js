@@ -11,8 +11,8 @@ class SplashScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.headerTitleStyle}>dispatcher 1.33</Text>
                 <Image source={icon} style={{ height: 100, width: 100 }} />
-                <Text>Dispatcher</Text>
             </View>
 
         )
@@ -20,7 +20,7 @@ class SplashScreen extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => this.nextPage(), 500);
+        setTimeout(() => this.nextPage(), 3000);
     }
 
     nextPage() {
@@ -43,6 +43,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#2180C0',
         position: 'relative',
         top: 0
+    },
+    headerTitleStyle: {
+        alignSelf: 'center',
+        fontSize: 36,
+        marginTop: 12,
+        fontWeight: 'bold',
+        color: 'white'
     }
 });
 

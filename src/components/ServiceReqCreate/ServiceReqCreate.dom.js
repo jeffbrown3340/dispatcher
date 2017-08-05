@@ -10,7 +10,7 @@ class serviceReqs extends Component {
     state = {
         sourceAcct: "",
         reqType: '',
-        ownerRep: 0,
+        ownerRep: '',
         status: ''
     }
 
@@ -24,38 +24,38 @@ class serviceReqs extends Component {
     render() {
         return (
             <div>
-                <h1>serviceReqs</h1>
+                <h1 style={styles.pageTitle}>serviceReqs</h1>
                 <div className='row'>
                     <div className='col col-xs-12'>
-                        <label>sourceAcct:</label>
-                        <input type="text"
+                        <div><label style={styles.fieldLabel}>sourceAcct:</label></div>
+                        <input style={styles.inputText} type="text"
                             value={this.state.sourceAcct}
                             onChange={event => this.setState({ sourceAcct: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <label>reqType:</label>
-                        <input type="text"
+                        <div><label style={styles.fieldLabel}>reqType:</label></div>
+                        <input style={styles.inputText} type="text"
                             value={this.state.reqType}
                             onChange={event => this.setState({ reqType: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <label>ownerRep:</label>
-                        <input type="text"
+                        <div><label style={styles.fieldLabel}>ownerRep:</label></div>
+                        <input style={styles.inputText} type="text"
                             value={this.state.ownerRep}
                             onChange={event => this.setState({ ownerRep: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <label>status:</label>
-                        <input type="text"
+                        <div><label style={styles.fieldLabel}>status:</label></div>
+                        <input style={styles.inputText} type="text"
                             value={this.state.status}
                             onChange={event => this.setState({ status: event.target.value })}
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <button onClick={this.saveItem.bind(this)}>Create</button>
+                        <button className='btn btn-danger' onClick={this.saveItem.bind(this)}>create<br />request</button>
                     </div>
                 </div>
             </div>
@@ -64,6 +64,20 @@ class serviceReqs extends Component {
 }
 
 const styles = {
+    pageTitle: {
+        color: 'white',
+        fontWeight: 'bold'
+    },
+    fieldLabel: {
+        marginBottom: 0,
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold'        
+    },
+    inputText: {
+        marginBottom: 12
+    }
+
 
 }
 
