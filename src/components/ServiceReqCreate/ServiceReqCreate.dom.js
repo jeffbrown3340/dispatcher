@@ -16,7 +16,6 @@ class serviceReqs extends Component {
     }
 
     clearState() {
-        console.log("805-0131");
         this.setState({
             sourceAcct: "",
             reqType: '',
@@ -28,7 +27,6 @@ class serviceReqs extends Component {
     saveItem(event) {
         axios.post(`${config.baseApiUrl}api/servicereqs`, this.state)
             .then(response => {
-                console.log("0804-2240");
                 this.clearState();
                 this.props.history.push('/servicereqcreate');
             });
@@ -37,6 +35,11 @@ class serviceReqs extends Component {
     navToUsers() {
         this.props.history.push('/userdetails');
     }
+
+    navToSRVSD() {
+        this.props.history.push('/srvsd');
+    }
+
 
     render() {
         return (
@@ -73,6 +76,7 @@ class serviceReqs extends Component {
                     </div>
                     <div className='col col-xs-12'>
                         <button className='btn btn-danger' onClick={this.saveItem.bind(this)}>create<br />request</button>
+                        <button style={styles.navToSRVSD} className='btn btn-danger' onClick={this.navToSRVSD.bind(this)}>change to<br />req screen</button>
                         <button style={styles.navToUserButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>change to<br />user screen</button>
                     </div>
                 </div>
@@ -96,7 +100,8 @@ const styles = {
         marginBottom: 12,
         width: 260
     },
-    navToUserButton: { marginLeft: 80}
+    navToUserButton: { marginLeft: 20},
+    navToSRVSD: { marginLeft: 20}
 }
 
 export default serviceReqs;

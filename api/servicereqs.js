@@ -14,6 +14,15 @@ router.get('/servicereqs', function (req, res) {
     });
 });
 
+router.get('/servicereqsd', function (req, res) {
+    db.servicereqs.find({
+    }, function (err, result) {
+         if (err) return res.send(err);
+         res.json(result);
+    });
+});
+
+
 /**
  * @todo: place your api route handler logic to GET servicereqs
  */

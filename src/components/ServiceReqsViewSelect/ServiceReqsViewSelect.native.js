@@ -20,6 +20,7 @@ class ServiceReqsViewSelect extends Component {
                     loggedInRep: this.props.navigation.state.params.loggedInRep,
                     serviceReqs: response.data 
                 });
+                console.log("8-24-0039", response.data);
             });
     }
     
@@ -52,6 +53,7 @@ class ServiceReqsViewSelect extends Component {
                                         style={styles.selectButton}
                                         onPress={this.selectReq.bind(this, serviceReq._id, serviceReq.sourceAcct)}>
                                         <Text style={styles.font18} key={serviceReq._id} >{serviceReq.sourceAcct}</Text>
+                                        <Text style={styles.font18} key={serviceReq._id + "S"} >{serviceReq.status}</Text>
                                     </TouchableOpacity>
                                   </View>  
                             ))}

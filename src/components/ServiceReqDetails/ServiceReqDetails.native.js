@@ -23,7 +23,7 @@ class ServiceReqDetails extends Component {
         axios.put(`${config.baseApiUrl}api/servicereqstatus/${this.state.serviceReq._id}`, this.state)
             .then(response => {
                 var statusObj = this.state.serviceReq;
-                statusObj.status = statusObj.status === 'Pending' ? "In Process" : "Complete";
+                statusObj.status = statusObj.status === 'Pending' ? "In Process" : "Completed";
                 this.setState({serviceReq: statusObj});
             });
         

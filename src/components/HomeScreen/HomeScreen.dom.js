@@ -43,8 +43,15 @@ class HomeScreen extends HomeScreenBase {
                     />
                 </div>
                 <div className='col col-xs-12' style={styles.loginButtonDiv}>
-                    {/* <Link to="/userdetails"><button style={styles.loginButton} className='btn btn-danger' onClick={this.consoleLogin.bind(this)}>Login</button></Link> */}
                     <button style={styles.loginButton} className='btn btn-danger' onClick={this.consoleLogin.bind(this)}>Login</button>
+                </div>
+                <div className='col col-xs-12' style={styles.footnoteText}>
+                    8/24/2017<br />
+                    current development (next):<br />
+                    --console req select into edit req details<br />
+                    --authentication<br />
+                    --native app request create<br />
+                    --more...
                 </div>
             </div>
             
@@ -52,18 +59,22 @@ class HomeScreen extends HomeScreenBase {
     }
 
     componentDidUpdate() {
-        // if (this.state.loggedInRep != '') this.nextPage();
-        if (this.state.loggedInRep != '') this.props.history.push('/servicereqcreate');
+        if (this.state.loggedInRep != '') this.nextPage();
     }
 
     nextPage() {
-        console.log("805-1231");
-        this.props.history.push('/servicereqcreate');
+        this.props.history.push('/srvsd');
 
     }
 }
 
 const styles = {
+    footnoteText: {
+        marginBottom: 0,
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold'        
+    },
     font18: {
         marginLeft: 10,
         padding: 5,
