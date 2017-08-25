@@ -46,12 +46,26 @@ class HomeScreen extends HomeScreenBase {
                     <button style={styles.loginButton} className='btn btn-danger' onClick={this.consoleLogin.bind(this)}>Login</button>
                 </div>
                 <div className='col col-xs-12' style={styles.footnoteText}>
-                    8/24/2017<br />
-                    current development (next):<br />
+                    jeff@jeffbrown.us<br />
+                    954.683.3340<br /><br />
+                    To view Service Requests, login 88888<br /><br />
+                    For mobile component, first download Expo,<br />
+                    then scan QR code at
+                        <a style={styles.font18}
+                            href="https://expo.io/@jeffbrown3340/dispatcher" 
+                            target="_blank">
+                            https://expo.io/@jeffbrown3340/dispatcher
+                        </a><br /><br />
+                    The Model: Console user creates requests,<br />
+                    Mobile user accepts and completes requests.<br /><br />
+                    Try it! Create a user, then assign requests to that user.<br />
+                    Then login as that user on the mobile app,<br />
+                    Touch a request to accept it, and then complete it.<br />
+                    (existing example user = 789)<br /><br />
+                    Under current development (next):<br />
                     --console req select into edit req details<br />
                     --authentication<br />
                     --native app request create<br />
-                    --more...
                 </div>
             </div>
             

@@ -68,7 +68,7 @@ class serviceReqs extends Component {
                         />
                     </div>
                     <div className='col col-xs-12'>
-                        <div><label style={styles.fieldLabel}>Status:</label></div>
+                        <div><label style={styles.fieldLabel}>Status (leave Pending):</label></div>
                         <input style={styles.inputText} type="text"
                             value={this.state.status}
                             onChange={event => this.setState({ status: event.target.value })}

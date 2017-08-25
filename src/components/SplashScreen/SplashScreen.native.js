@@ -11,7 +11,7 @@ class SplashScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.headerTitleStyle}>dispatcher 1.35</Text>
+                <Text style={styles.headerTitleStyle}>dispatcher 1.36</Text>
                 <Image source={icon} style={{ height: 100, width: 100 }} />
             </View>
 
