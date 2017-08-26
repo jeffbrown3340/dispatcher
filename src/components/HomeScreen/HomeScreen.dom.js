@@ -48,7 +48,7 @@ class HomeScreen extends HomeScreenBase {
                 <div className='col col-xs-12' style={styles.footnoteText}>
                     jeff@jeffbrown.us<br />
                     954.683.3340<br /><br />
-                    To view Service Requests, login 88888<br /><br />
+                    Login as any valid User ID (guest = 88888)<br /><br />
                     For mobile component, first download Expo,<br />
                     then scan QR code at
                         <a style={styles.font18}
@@ -58,7 +58,7 @@ class HomeScreen extends HomeScreenBase {
                         </a><br /><br />
                     The Model: Console user creates requests,<br />
                     Mobile user accepts and completes requests.<br /><br />
-                    Try it! Create a user, then assign requests to that user.<br />
+                    Try it ... Create a user, then assign requests to that user.<br />
                     Then login as that user on the mobile app,<br />
                     Touch a request to accept it, and then complete it.<br />
                     (existing example user = 789)<br /><br />
