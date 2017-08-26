@@ -44,7 +44,7 @@ class ServiceReqsViewSelect extends Component {
                 {this.state.serviceReqs.map(servicereq => (
                     <div key={servicereq._id} className='row'>
                         <div className='col' style={styles.buttonDiv}>
-                            <button style={{'width': '100%', 'maxWidth': '260px', 'whiteSpace': 'normal'}} className="btn btn-danger">
+                            <button style={{'width': '100%', 'maxWidth': '600px', 'whiteSpace': 'normal'}} className="btn btn-danger">
                                 {servicereq.ownerRep + " — " + servicereq.sourceAcct + " — " + servicereq.status}
                             </button>
                         </div>
