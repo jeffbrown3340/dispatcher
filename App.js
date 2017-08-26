@@ -21,7 +21,7 @@ export default App = StackNavigator(
     initialRouteName: 'Splash',
     headerMode: 'screen',
     navigationOptions: {
-      title: 'dispatcher 1.36',
+      title: 'dispatcher 1.37',
       headerStyle: {
         height: 65,
         backgroundColor: '#2180C0',

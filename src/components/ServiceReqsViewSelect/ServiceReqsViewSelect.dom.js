@@ -33,6 +33,9 @@ class ServiceReqsViewSelect extends Component {
         this.props.history.push('/servicereqcreate');
     }
 
+    navToUsers() {
+        this.props.history.push('/userdetails');
+    }
 
     render() {
         return (
@@ -40,11 +43,12 @@ class ServiceReqsViewSelect extends Component {
                 <h3 style={styles.pageTitle}>
                     <span>Service Requests</span>
                     <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>change to<br />create req screen</button></span>
+                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>change to<br />user screen</button></span>
                 </h3>
                 {this.state.serviceReqs.map(servicereq => (
                     <div key={servicereq._id} className='row'>
                         <div className='col' style={styles.buttonDiv}>
-                            <button style={{'width': '100%', 'maxWidth': '600px', 'whiteSpace': 'normal'}} className="btn btn-danger">
+                            <button style={{'width': '100%', 'maxWidth': '720px', 'whiteSpace': 'normal'}} className="btn btn-danger">
                                 {servicereq.ownerRep + " — " + servicereq.sourceAcct + " — " + servicereq.status}
                             </button>
                         </div>
