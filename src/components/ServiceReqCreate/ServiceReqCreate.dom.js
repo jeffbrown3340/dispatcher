@@ -76,8 +76,8 @@ class serviceReqs extends Component {
                     </div>
                     <div className='col col-xs-12'>
                         <button className='btn btn-danger' onClick={this.saveItem.bind(this)}>create<br />request</button>
-                        <button style={styles.navToSRVSD} className='btn btn-danger' onClick={this.navToSRVSD.bind(this)}>change to<br />req screen</button>
-                        <button style={styles.navToUserButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>change to<br />user screen</button>
+                        <button style={styles.navToSRVSD} className='btn btn-danger' onClick={this.navToSRVSD.bind(this)}>requests</button>
+                        <button style={styles.navToUserButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>users</button>
                     </div>
                 </div>
             </div>

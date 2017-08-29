@@ -42,8 +42,8 @@ class ServiceReqsViewSelect extends Component {
             <div>
                 <h3 style={styles.pageTitle}>
                     <span>Service Requests</span>
-                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>change to<br />create req screen</button></span>
-                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>change to<br />user screen</button></span>
+                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>requests</button></span>
+                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>users</button></span>
                 </h3>
                 {this.state.serviceReqs.map(servicereq => (
                     <div key={servicereq._id} className='row'>
