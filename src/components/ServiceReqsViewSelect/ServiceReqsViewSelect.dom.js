@@ -42,7 +42,7 @@ class ServiceReqsViewSelect extends Component {
             <div>
                 <h3 style={styles.pageTitle}>
                     <span>Service Requests</span>
-                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>requests</button></span>
+                    <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>new<br />request</button></span>
                     <span><button style={styles.navButton} className='btn btn-danger' onClick={this.navToUsers.bind(this)}>users</button></span>
                 </h3>
                 {this.state.serviceReqs.map(servicereq => (

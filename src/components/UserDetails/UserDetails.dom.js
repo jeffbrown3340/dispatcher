@@ -94,8 +94,8 @@ class UserDetails extends Component {
                     </div>
                     <div className='col col-xs-12'>
                         <button className='btn btn-danger' onClick={this.saveItem.bind(this)}>create<br />account</button>
-                        <button style={styles.navToSRVSD} className='btn btn-danger' onClick={this.navToSRVSD.bind(this)}>requests</button>
-                        <button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>users</button>
+                        <button style={styles.navToSRVSD} className='btn btn-danger' onClick={this.navToSRVSD.bind(this)}>view<br />requests</button>
+                        <button style={styles.navButton} className='btn btn-danger' onClick={this.navToSRC.bind(this)}>new<br />request</button>
                     </div>
                 </div>
             </div>
