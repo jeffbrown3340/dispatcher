@@ -1,7 +1,7 @@
 jeff@jeffbrown.us
 954.683.3340
 
-[Run this app from Heroku](https://jeffbrownus-dispatcher.herokuapp.com)
+[Run this app](https://jeffbrownus-dispatcher.herokuapp.com) from Heroku (give it time to spin up).
 
 Login as any valid User ID (guest = 88888)
 
