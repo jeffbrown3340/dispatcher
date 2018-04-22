@@ -1,7 +1,7 @@
 jeff@jeffbrown.us
 954.683.3340
 
-[Run this app from Heroku via www.jbuscontrol.com](http://www.jbuscontrol.com)
+[Run this app from Heroku](https://jeffbrownus-dispatcher.herokuapp.com)
 
 Login as any valid User ID (guest = 88888)
 
